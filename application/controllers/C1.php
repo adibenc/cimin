@@ -13,4 +13,12 @@ class C1 extends BaseController {
 	{
 		echo "index";
 	}
+	
+	public function mapRedir($k){
+		$m = json_decode( file_get_contents(APPPATH."/dmy-url.json") , true);
+		$url = $m[$k];
+		// to url
+		header("Location: $url");
+		// redirect($url);
+	}
 }
