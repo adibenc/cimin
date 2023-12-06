@@ -1,0 +1,2 @@
+# cimin
+ci mini
