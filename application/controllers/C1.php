@@ -15,8 +15,11 @@ class C1 extends BaseController {
 	}
 	
 	public function mapRedir($k){
-		$m = json_decode( file_get_contents(APPPATH."/dmy-url.json") , true);
+		$m = json_decode(
+			file_get_contents( SecretConst::FILE_URL_MAP ) , true);
 		$url = $m[$k];
+		$ip = $_SERVER['REMOTE_ADDR'];
+		logs("from $ip :: $k $url ");
 		// to url
 		header("Location: $url");
 		// redirect($url);
